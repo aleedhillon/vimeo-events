@@ -60,5 +60,10 @@ export default {
       banner: null,
     };
   },
+  created() {
+    Echo.join("banners").listen(".banners.created", (e) => {
+      this.banner = e.banner.content;
+    });
+  },
 };
 </script>

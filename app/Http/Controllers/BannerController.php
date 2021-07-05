@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\BannerCreated;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,8 @@ class BannerController extends Controller
         ]);
 
         $banner = Banner::create($validated);
+
+        broadcast(new BannerCreated($banner))->toOthers();
 
         return response()->json([
             'banner' => $banner

@@ -23,7 +23,8 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                $redirectPath = $guard == 'participants' ? RouteServiceProvider::PARTICIPANT_HOME : RouteServiceProvider::HOME;
+                return redirect($redirectPath);
             }
         }
 

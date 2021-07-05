@@ -24,7 +24,21 @@
           >
             <span class="block sm:inline">{{ banner }}</span>
           </div>
-          <div class="p-6 bg-white border-b border-gray-200"></div>
+          <div class="p-6 bg-white border-b border-gray-200">
+            <iframe
+              src="https://player.vimeo.com/video/563568179"
+              width="640"
+              height="360"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <p>
+              <a href="https://vimeo.com/563568179">NYC! Sound (Back) On</a>
+              from <a href="https://vimeo.com/user17465310">Bonamaze</a> on
+              <a href="https://vimeo.com">Vimeo</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>

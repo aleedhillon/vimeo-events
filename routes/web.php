@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BannerController;
+use App\Models\Banner;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,9 +28,12 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard', [
-        'isParticipant' => false
+        'isParticipant' => false,
+        'banners' => Banner::all()
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::post('/banners', [BannerController::class, 'store'])->middleware('auth');
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/participants_auth.php';
